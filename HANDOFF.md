@@ -13,9 +13,13 @@ en eigen scores.
 - Gedaan: in `apps/ios/OuraApp/project.yml` en `project-ci.yml` staat
   `DEVELOPMENT_TEAM: "UL2WF38GWY"` en bundle-ID `nl.ramin.openhealth`.
 - Build-route: **Xcode Cloud**. De Mac van de eigenaar is vaak druk met ander werk, dus
-  zware lokale builds vermijden. Xcode Cloud draait `ci_scripts/ci_post_clone.sh`, dat
+  zware lokale builds vermijden. Xcode Cloud draait `apps/ios/OuraApp/ci_scripts/ci_post_clone.sh`, dat
   de Rust-xcframework bouwt en het project genereert uit `project-ci.yml` (versie
   zonder on-device AI-modellen).
+
+- Gedaan (2026-11-25): stap 1 en 2 hieronder. App ID `nl.ramin.openhealth` ("Open Health",
+  HealthKit aan) is geregistreerd; app **Open Health Ramin** staat in App Store Connect
+  (Apple ID 6838963137, SKU `openhealth-ios-001`, hoofdtaal Nederlands). Verder bij stap 3.
 
 ## Nog te doen (in deze volgorde)
 1. **App ID registreren** op developer.apple.com → Identifiers: `nl.ramin.openhealth`,

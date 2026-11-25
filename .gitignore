@@ -21,7 +21,9 @@ notes/models/
 *.mlmodel
 
 # iOS build artifacts generated locally by xcodegen / build scripts.
-apps/ios/OuraApp/OuraApp.xcodeproj/
+# OuraApp.xcodeproj IS committed (generated from project-ci.yml): Xcode Cloud needs the
+# project in the repo. Only per-user state is ignored.
+apps/ios/OuraApp/OuraApp.xcodeproj/**/xcuserdata/
 apps/ios/OuraCore.xcframework/
 apps/ios/libtorch-xcframeworks/
 apps/ios/.libtorch-frameworks-build/

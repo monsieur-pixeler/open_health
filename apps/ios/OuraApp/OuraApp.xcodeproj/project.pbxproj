@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0495769093B20E220C3087A1 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4D6E4FACFF0279C2110F0 /* Models.swift */; };
+		1B076FB6D5DB34E6F6AA7513 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4024C8B53BE7A578961DCA70 /* Core.swift */; };
+		24250D37DC38689A634319E8 /* ModelProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7457BB37BE82DEEE27B923B /* ModelProgress.swift */; };
+		2EBA36047A60C579C1C2FB2D /* NssaCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A27E32AFEACB4FD560ABA90 /* NssaCacheTests.swift */; };
+		3433A04D5904819D7614D209 /* Diagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E53D1F0E0DD59ACFCF3FD42 /* Diagnostics.swift */; };
+		41CDA3B83305BE5227AF846B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C0106A555402E3A085B6B8 /* Assets.xcassets */; };
+		4276CD02BC200848222FA9BE /* CrashCatch.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A69BC2C7ED612DD4A89D7 /* CrashCatch.c */; };
+		575F4F95714DA127981A40F2 /* OuraCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339EC9B320F4DC7C3448353E /* OuraCore.xcframework */; };
+		58968090CF83E35021DD4057 /* NssaParityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE047C9D48F416A1A010F95 /* NssaParityTests.swift */; };
+		635C4ED30B5DEDA313B760B8 /* ResearchExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203FD3BBF915ABFCD887A177 /* ResearchExport.swift */; };
+		702161947029785E43846FAF /* OuraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55F5115BC3AFB621362EAA5 /* OuraApp.swift */; };
+		70B92CDDD441903B117C49B4 /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392DA1E5A75C3A07C030C79 /* Reports.swift */; };
+		7D57BDC05EDE024967947C21 /* SleepStaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F220490E2E890496DB35F8 /* SleepStaging.swift */; };
+		7FDD71F43554E99BA73EFA64 /* NssaParityFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = B806FE24CC64C27A402548DE /* NssaParityFixture.json */; };
+		80F435DC498A3F5B023D0B93 /* BLETransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8030944104ED5220ECDFD433 /* BLETransport.swift */; };
+		811F63273DB26383879923B9 /* RawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD30595938ED2B2849D4D4 /* RawData.swift */; };
+		841BA15F7F7424ACE1E89F57 /* DayExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0DED370AD97741DF1AB20B /* DayExport.swift */; };
+		8633F51F80EFFAB9E59526F6 /* ResearchExportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100F0B924028D645F7168E4 /* ResearchExportTests.swift */; };
+		8AE59A0975A6EC4625041F87 /* oura_core.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE213377D706DF8A454DA692 /* oura_core.swift */; };
+		905E341315165BF05B730C4C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF464BDAD74D11AA8385344C /* Theme.swift */; };
+		908ABE0AD3A340E24024E8B9 /* HealthExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D074501B508ABEB8DA49F57 /* HealthExport.swift */; };
+		AFD711414713D424B7754C5D /* ProfileSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB258C684C25868D79801A8 /* ProfileSettings.swift */; };
+		B15CA017EB820CB73FED68B2 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B84681E98B8404283AFD29 /* HeartRate.swift */; };
+		C0F15467F260489895C6543C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E7C25CD8CACF64282E7406 /* HealthKit.framework */; };
+		CD88EFB42AB49F7A4B1AAEB9 /* IbiCorrection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3200D6A5C257CECCFCD0C75 /* IbiCorrection.swift */; };
+		CE18788A253AE4D5DE48F7E9 /* WorkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36D24757D631870582122B /* WorkCoordinator.swift */; };
+		DBE446B3807D2769751068F2 /* RingSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F3879878B2B109297BFF2 /* RingSync.swift */; };
+		E25E4966E1BC6DBC5E479FA1 /* StabilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0A9E5030CB3C10B8CFDEA1 /* StabilityTests.swift */; };
+		EE057D4F8A9CC10B9F817B68 /* HealthExportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22419BAF973461259F978389 /* HealthExportTests.swift */; };
+		FDCC43C20B1F47B4479CC797 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2266D329BB0C7E990BAFD65 /* Components.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0AADC8126F502E518D4AAE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5734B5F2FD2F7EEC121166F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D8F1C9E3EF716FC5E47C35C;
+			remoteInfo = OuraApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03B84681E98B8404283AFD29 /* HeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
+		203FD3BBF915ABFCD887A177 /* ResearchExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchExport.swift; sourceTree = "<group>"; };
+		22419BAF973461259F978389 /* HealthExportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthExportTests.swift; sourceTree = "<group>"; };
+		2392DA1E5A75C3A07C030C79 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
+		2A27E32AFEACB4FD560ABA90 /* NssaCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NssaCacheTests.swift; sourceTree = "<group>"; };
+		32F4D6E4FACFF0279C2110F0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		339EC9B320F4DC7C3448353E /* OuraCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OuraCore.xcframework; path = ../OuraCore.xcframework; sourceTree = "<group>"; };
+		3CE047C9D48F416A1A010F95 /* NssaParityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NssaParityTests.swift; sourceTree = "<group>"; };
+		4024C8B53BE7A578961DCA70 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		5E36D24757D631870582122B /* WorkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkCoordinator.swift; sourceTree = "<group>"; };
+		5E9A69BC2C7ED612DD4A89D7 /* CrashCatch.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CrashCatch.c; sourceTree = "<group>"; };
+		7D0DED370AD97741DF1AB20B /* DayExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExport.swift; sourceTree = "<group>"; };
+		7E53D1F0E0DD59ACFCF3FD42 /* Diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagnostics.swift; sourceTree = "<group>"; };
+		7EB258C684C25868D79801A8 /* ProfileSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettings.swift; sourceTree = "<group>"; };
+		8030944104ED5220ECDFD433 /* BLETransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLETransport.swift; sourceTree = "<group>"; };
+		817F3879878B2B109297BFF2 /* RingSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingSync.swift; sourceTree = "<group>"; };
+		82C0106A555402E3A085B6B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A0A9E5030CB3C10B8CFDEA1 /* StabilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StabilityTests.swift; sourceTree = "<group>"; };
+		8D074501B508ABEB8DA49F57 /* HealthExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthExport.swift; sourceTree = "<group>"; };
+		9DDD30595938ED2B2849D4D4 /* RawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawData.swift; sourceTree = "<group>"; };
+		A2F220490E2E890496DB35F8 /* SleepStaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepStaging.swift; sourceTree = "<group>"; };
+		AE213377D706DF8A454DA692 /* oura_core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oura_core.swift; sourceTree = "<group>"; };
+		B806FE24CC64C27A402548DE /* NssaParityFixture.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NssaParityFixture.json; sourceTree = "<group>"; };
+		C3200D6A5C257CECCFCD0C75 /* IbiCorrection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbiCorrection.swift; sourceTree = "<group>"; };
+		CF32603A0652C6248EFDBD73 /* CrashCatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashCatch.h; sourceTree = "<group>"; };
+		CF464BDAD74D11AA8385344C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D100F0B924028D645F7168E4 /* ResearchExportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchExportTests.swift; sourceTree = "<group>"; };
+		D1E7C25CD8CACF64282E7406 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		D208119F7DF5C7D4059DA416 /* OuraAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OuraAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D55F5115BC3AFB621362EAA5 /* OuraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuraApp.swift; sourceTree = "<group>"; };
+		E7457BB37BE82DEEE27B923B /* ModelProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProgress.swift; sourceTree = "<group>"; };
+		ED3721DFCD22E76EB8AEC4DC /* OuraApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OuraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2266D329BB0C7E990BAFD65 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		334D0A9C259531F2766A81DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0F15467F260489895C6543C /* HealthKit.framework in Frameworks */,
+				575F4F95714DA127981A40F2 /* OuraCore.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1522D739515A0C0304A9A92E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				22419BAF973461259F978389 /* HealthExportTests.swift */,
+				2A27E32AFEACB4FD560ABA90 /* NssaCacheTests.swift */,
+				B806FE24CC64C27A402548DE /* NssaParityFixture.json */,
+				3CE047C9D48F416A1A010F95 /* NssaParityTests.swift */,
+				D100F0B924028D645F7168E4 /* ResearchExportTests.swift */,
+				8A0A9E5030CB3C10B8CFDEA1 /* StabilityTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		2ADBAB09744F17EA78573078 /* generated */ = {
+			isa = PBXGroup;
+			children = (
+				AE213377D706DF8A454DA692 /* oura_core.swift */,
+			);
+			path = generated;
+			sourceTree = "<group>";
+		};
+		31947F03D27D6A58A3D1E786 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED3721DFCD22E76EB8AEC4DC /* OuraApp.app */,
+				D208119F7DF5C7D4059DA416 /* OuraAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E9D7A01CE447A6A1FAAB40F /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				2ADBAB09744F17EA78573078 /* generated */,
+			);
+			name = ios;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F896F4F855058DB6A192C0AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1E7C25CD8CACF64282E7406 /* HealthKit.framework */,
+				339EC9B320F4DC7C3448353E /* OuraCore.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAFCF172B8B7EF7EFE8B9343 = {
+			isa = PBXGroup;
+			children = (
+				82C0106A555402E3A085B6B8 /* Assets.xcassets */,
+				8030944104ED5220ECDFD433 /* BLETransport.swift */,
+				F2266D329BB0C7E990BAFD65 /* Components.swift */,
+				4024C8B53BE7A578961DCA70 /* Core.swift */,
+				5E9A69BC2C7ED612DD4A89D7 /* CrashCatch.c */,
+				CF32603A0652C6248EFDBD73 /* CrashCatch.h */,
+				7D0DED370AD97741DF1AB20B /* DayExport.swift */,
+				7E53D1F0E0DD59ACFCF3FD42 /* Diagnostics.swift */,
+				8D074501B508ABEB8DA49F57 /* HealthExport.swift */,
+				03B84681E98B8404283AFD29 /* HeartRate.swift */,
+				C3200D6A5C257CECCFCD0C75 /* IbiCorrection.swift */,
+				E7457BB37BE82DEEE27B923B /* ModelProgress.swift */,
+				32F4D6E4FACFF0279C2110F0 /* Models.swift */,
+				D55F5115BC3AFB621362EAA5 /* OuraApp.swift */,
+				7EB258C684C25868D79801A8 /* ProfileSettings.swift */,
+				9DDD30595938ED2B2849D4D4 /* RawData.swift */,
+				2392DA1E5A75C3A07C030C79 /* Reports.swift */,
+				203FD3BBF915ABFCD887A177 /* ResearchExport.swift */,
+				817F3879878B2B109297BFF2 /* RingSync.swift */,
+				A2F220490E2E890496DB35F8 /* SleepStaging.swift */,
+				CF464BDAD74D11AA8385344C /* Theme.swift */,
+				5E36D24757D631870582122B /* WorkCoordinator.swift */,
+				5E9D7A01CE447A6A1FAAB40F /* ios */,
+				1522D739515A0C0304A9A92E /* Tests */,
+				F896F4F855058DB6A192C0AE /* Frameworks */,
+				31947F03D27D6A58A3D1E786 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D8F1C9E3EF716FC5E47C35C /* OuraApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AFFF31E0ADDFF17D6784868 /* Build configuration list for PBXNativeTarget "OuraApp" */;
+			buildPhases = (
+				3869AB813448B941F751B7CB /* Sources */,
+				4DC1A0117073C71206D8219B /* Resources */,
+				334D0A9C259531F2766A81DC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OuraApp;
+			packageProductDependencies = (
+			);
+			productName = OuraApp;
+			productReference = ED3721DFCD22E76EB8AEC4DC /* OuraApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7FD3C7CE04EF740F7D2CC028 /* OuraAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7AFD3DE82A57B1F593FE651 /* Build configuration list for PBXNativeTarget "OuraAppTests" */;
+			buildPhases = (
+				12582F6C96D3E8C16BE0FF5F /* Sources */,
+				B5C7D87424FE376AD0BD5F03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2C2E8E14C47255C114E705C /* PBXTargetDependency */,
+			);
+			name = OuraAppTests;
+			packageProductDependencies = (
+			);
+			productName = OuraAppTests;
+			productReference = D208119F7DF5C7D4059DA416 /* OuraAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5734B5F2FD2F7EEC121166F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					7D8F1C9E3EF716FC5E47C35C = {
+						DevelopmentTeam = UL2WF38GWY;
+						ProvisioningStyle = Automatic;
+					};
+					7FD3C7CE04EF740F7D2CC028 = {
+						DevelopmentTeam = UL2WF38GWY;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B5DEDAA8C3E0A894863FD0AC /* Build configuration list for PBXProject "OuraApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = FAFCF172B8B7EF7EFE8B9343;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D8F1C9E3EF716FC5E47C35C /* OuraApp */,
+				7FD3C7CE04EF740F7D2CC028 /* OuraAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DC1A0117073C71206D8219B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41CDA3B83305BE5227AF846B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5C7D87424FE376AD0BD5F03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FDD71F43554E99BA73EFA64 /* NssaParityFixture.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12582F6C96D3E8C16BE0FF5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE057D4F8A9CC10B9F817B68 /* HealthExportTests.swift in Sources */,
+				2EBA36047A60C579C1C2FB2D /* NssaCacheTests.swift in Sources */,
+				58968090CF83E35021DD4057 /* NssaParityTests.swift in Sources */,
+				8633F51F80EFFAB9E59526F6 /* ResearchExportTests.swift in Sources */,
+				E25E4966E1BC6DBC5E479FA1 /* StabilityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3869AB813448B941F751B7CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80F435DC498A3F5B023D0B93 /* BLETransport.swift in Sources */,
+				FDCC43C20B1F47B4479CC797 /* Components.swift in Sources */,
+				1B076FB6D5DB34E6F6AA7513 /* Core.swift in Sources */,
+				4276CD02BC200848222FA9BE /* CrashCatch.c in Sources */,
+				841BA15F7F7424ACE1E89F57 /* DayExport.swift in Sources */,
+				3433A04D5904819D7614D209 /* Diagnostics.swift in Sources */,
+				908ABE0AD3A340E24024E8B9 /* HealthExport.swift in Sources */,
+				B15CA017EB820CB73FED68B2 /* HeartRate.swift in Sources */,
+				CD88EFB42AB49F7A4B1AAEB9 /* IbiCorrection.swift in Sources */,
+				24250D37DC38689A634319E8 /* ModelProgress.swift in Sources */,
+				0495769093B20E220C3087A1 /* Models.swift in Sources */,
+				702161947029785E43846FAF /* OuraApp.swift in Sources */,
+				AFD711414713D424B7754C5D /* ProfileSettings.swift in Sources */,
+				811F63273DB26383879923B9 /* RawData.swift in Sources */,
+				70B92CDDD441903B117C49B4 /* Reports.swift in Sources */,
+				635C4ED30B5DEDA313B760B8 /* ResearchExport.swift in Sources */,
+				DBE446B3807D2769751068F2 /* RingSync.swift in Sources */,
+				7D57BDC05EDE024967947C21 /* SleepStaging.swift in Sources */,
+				905E341315165BF05B730C4C /* Theme.swift in Sources */,
+				CE18788A253AE4D5DE48F7E9 /* WorkCoordinator.swift in Sources */,
+				8AE59A0975A6EC4625041F87 /* oura_core.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A2C2E8E14C47255C114E705C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D8F1C9E3EF716FC5E47C35C /* OuraApp */;
+			targetProxy = F0AADC8126F502E518D4AAE5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4FE2DC81E9C3297F5DBC09F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = OuraApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 42;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UL2WF38GWY;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 0.1.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ramin.openhealth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		56A3CBC4ECEBBD44D9E12E85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = OuraApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 42;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UL2WF38GWY;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 0.1.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.ramin.openhealth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		6D3E6D8A7A6D4E1D6906C01F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"..\"",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-lsqlite3",
+				);
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B8A67164BE35A78A871508C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OuraApp.app/OuraApp";
+			};
+			name = Release;
+		};
+		C8290742C36257264001A614 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"..\"",
+				);
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-lsqlite3",
+				);
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CA692D5E8C05DD25A10ECABB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OuraApp.app/OuraApp";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9AFFF31E0ADDFF17D6784868 /* Build configuration list for PBXNativeTarget "OuraApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8290742C36257264001A614 /* Debug */,
+				6D3E6D8A7A6D4E1D6906C01F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A7AFD3DE82A57B1F593FE651 /* Build configuration list for PBXNativeTarget "OuraAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA692D5E8C05DD25A10ECABB /* Debug */,
+				B8A67164BE35A78A871508C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B5DEDAA8C3E0A894863FD0AC /* Build configuration list for PBXProject "OuraApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FE2DC81E9C3297F5DBC09F4 /* Debug */,
+				56A3CBC4ECEBBD44D9E12E85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5734B5F2FD2F7EEC121166F /* Project object */;
+}

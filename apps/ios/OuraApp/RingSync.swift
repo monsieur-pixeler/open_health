@@ -818,6 +818,8 @@ final class RingSync: ObservableObject {
             status = "Checking pairing key…"
         case "setup":
             status = "Preparing your ring…"
+        case "features":
+            status = "Checking ring features…"
         case "rebase":
             status = "Recovering ring history…"
             dlog("sync", "saved cursor is absent on ring; rebasing to the new boot epoch")

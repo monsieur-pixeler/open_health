@@ -741,6 +741,11 @@ impl RingSession {
             // The app-layer command is refused by some firmware; the plain one is not.
             let _ = client.sync_time().await;
         }
+        // Turn on step-motion and workout-HR logging if this ring still has them OFF
+        // (a ring never onboarded with the official app does). Before the drain, so
+        // the ring starts logging them from this sync on.
+        progress.on_progress("features".into(), 0, 0);
+        enable_default_features(&client, progress.as_ref()).await;
         // Ask the ring to run its sleep analysis before draining. Bedtime periods are
         // the ONLY thing build_summary turns into nights, and the ring writes one when
         // it postprocesses a sleep — not while it is recording one. Triggering it here
@@ -840,12 +845,81 @@ impl RingSession {
                 progress.on_progress(format!("phone anchor not saved: {error}"), 0, 0);
             }
         }
+        snapshot_feature_modes(&client, &db_path).await;
         Ok(SyncReport {
             serial,
             events_synced: outcome.events_synced,
             inserted: inserted.into_inner(),
             next_cursor: outcome.next_cursor,
         })
+    }
+}
+
+/// Consumer features this app turns on itself, in enable order (id, `feature_modes.json`
+/// name). The official app enables them from a per-account server flag; a ring that was
+/// never set up there leaves them OFF, so no step-motion or workout-HR events are ever
+/// logged. REAL_STEPS goes first: the app treats it as the prerequisite for EXERCISE_HR.
+const AUTO_ENABLE_FEATURES: [(u8, &str); 2] = [(0x0b, "real_steps"), (0x03, "exercise_hr")];
+
+/// Every feature whose real on-ring mode is snapshotted to `feature_modes.json`, so the
+/// summary's "measuring" list shows actual on/off. Same set as the CLI sync.
+const SNAPSHOT_FEATURES: [(u8, &str); 7] = [
+    (0x02, "daytime_hr"),
+    (0x03, "exercise_hr"),
+    (0x04, "spo2"),
+    (0x08, "resting_hr"),
+    (0x0b, "real_steps"),
+    (0x0c, "experimental"),
+    (0x0d, "cva_ppg"),
+];
+
+/// Which features to switch to AUTOMATIC, given each one's mode as read from the ring
+/// (`None` = the read failed). Only a feature the ring reports as OFF is touched: an
+/// unreadable one is left alone, and so is one already running in any mode.
+fn features_to_enable(ring_modes: &[(u8, Option<u8>)]) -> Vec<u8> {
+    ring_modes
+        .iter()
+        .filter(|(_, mode)| *mode == Some(oura_protocol::protocol::feature_mode::OFF))
+        .map(|(id, _)| *id)
+        .collect()
+}
+
+/// Best-effort: turn on [`AUTO_ENABLE_FEATURES`] that the ring reports as OFF. A refusal
+/// (unsupported capability, older firmware) is reported through `progress` and never
+/// fails the sync.
+async fn enable_default_features<T: Transport>(
+    client: &OuraClient<T>,
+    progress: &dyn SyncProgressListener,
+) {
+    let mut ring_modes = Vec::with_capacity(AUTO_ENABLE_FEATURES.len());
+    for (id, _) in AUTO_ENABLE_FEATURES {
+        ring_modes.push((id, client.feature_status(id).await.ok().map(|s| s.mode)));
+    }
+    for id in features_to_enable(&ring_modes) {
+        let name = AUTO_ENABLE_FEATURES
+            .iter()
+            .find(|(feature, _)| *feature == id)
+            .map(|(_, name)| *name)
+            .unwrap_or("feature");
+        let mode = oura_protocol::protocol::feature_mode::AUTOMATIC;
+        match client.set_feature_mode(id, mode).await {
+            Ok(()) => progress.on_progress(format!("feature enabled: {name}"), 0, 0),
+            Err(error) => progress.on_progress(format!("feature not enabled: {name}: {error}"), 0, 0),
+        }
+    }
+}
+
+/// Best-effort snapshot of the real on-ring feature modes next to the DB (see
+/// `oura_summary::write_feature_modes`). Nothing is written when no read succeeds.
+async fn snapshot_feature_modes<T: Transport>(client: &OuraClient<T>, db_path: &str) {
+    let mut modes = serde_json::Map::new();
+    for (id, name) in SNAPSHOT_FEATURES {
+        if let Ok(status) = client.feature_status(id).await {
+            modes.insert(name.to_string(), json!(status.mode));
+        }
+    }
+    if !modes.is_empty() {
+        oura_summary::write_feature_modes(std::path::Path::new(db_path), modes);
     }
 }
 
@@ -1037,6 +1111,34 @@ mod tests {
             "protocol error: extended history request failed with result code 0xff"
         ));
         assert!(!is_rejected_history_cursor("BLE link lost mid-batch"));
+    }
+}
+
+#[cfg(test)]
+mod feature_enable_tests {
+    use super::*;
+    use oura_protocol::protocol::feature_mode::{AUTOMATIC, CONNECTED_LIVE, OFF, REQUESTED};
+
+    #[test]
+    fn only_features_the_ring_reports_off_are_enabled() {
+        // stock ring: both extra features OFF -> both enabled, order preserved
+        assert_eq!(features_to_enable(&[(0x0b, Some(OFF)), (0x03, Some(OFF))]), vec![0x0b, 0x03]);
+        // already running in any mode -> left alone
+        assert!(features_to_enable(&[
+            (0x0b, Some(AUTOMATIC)),
+            (0x03, Some(REQUESTED)),
+            (0x02, Some(CONNECTED_LIVE)),
+        ])
+        .is_empty());
+        // an unreadable status is not a reason to write to the ring
+        assert_eq!(features_to_enable(&[(0x0b, None), (0x03, Some(OFF))]), vec![0x03]);
+        assert!(features_to_enable(&[]).is_empty());
+    }
+
+    #[test]
+    fn real_steps_is_enabled_before_exercise_hr() {
+        let ids: Vec<u8> = AUTO_ENABLE_FEATURES.iter().map(|(id, _)| *id).collect();
+        assert_eq!(ids, vec![0x0b, 0x03]);
     }
 }
 

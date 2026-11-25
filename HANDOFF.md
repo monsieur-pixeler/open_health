@@ -19,7 +19,15 @@ en eigen scores.
 
 - Gedaan (2026-11-25): stap 1 en 2 hieronder. App ID `nl.ramin.openhealth` ("Open Health",
   HealthKit aan) is geregistreerd; app **Open Health Ramin** staat in App Store Connect
-  (Apple ID 6838963137, SKU `openhealth-ios-001`, hoofdtaal Nederlands). Verder bij stap 3.
+  (Apple ID 6838963137, SKU `openhealth-ios-001`, hoofdtaal Nederlands).
+- Gedaan (2026-11-25): stap 3. Xcode Cloud-workflow "Default": push naar `main` → Archive iOS
+  met Distribution Preparation "TestFlight (Internal Testing Only)". Geen post-actie; een
+  Xcode Cloud-build moet je in TestFlight handmatig aan groep **Intern** toevoegen
+  (of voeg de post-actie "TestFlight Internal Testing" met groep Intern toe).
+  Build 0.1.2 (3) staat in TestFlight op "Testing" voor groep Intern. Verder bij stap 4:
+  installeren via de TestFlight-app en de ring koppelen.
+- Let op: Xcode Cloud-tegoed was eind november bijna op (vult aan op 7 december); elke
+  push naar `main` start een build van ±5 minuten.
 
 ## Nog te doen (in deze volgorde)
 1. **App ID registreren** op developer.apple.com → Identifiers: `nl.ramin.openhealth`,

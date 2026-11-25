@@ -204,12 +204,14 @@ has no `illness`) and the ring-clock warnings (`clock.warnings`). Still iOS-only
 - **Symptom Radar details**: all four biomarkers with their personal band
   (`lower`/`upper`); the web lists only the flagged ones.
 - **Automatic feature enable on sync**: the iOS sync (`oura-core` `sync_inner`) switches
-  `real_steps` and `exercise_hr` to AUTOMATIC when the ring reports them OFF, then
+  `real_steps`, `exercise_hr` and `cva_ppg` to AUTOMATIC when the ring reports them OFF, then
   snapshots the real modes to `feature_modes.json` like the CLI sync does. A ring that
   was never onboarded with the official app has both OFF. The web/CLI sync does not
   auto-enable; there you toggle per feature (`oura feature-mode`, dashboard switch).
   Consequence: a feature switched off from the dashboard is switched on again by the
   next phone sync, because iOS has no per-feature toggle yet.
+  iOS shows the resulting `device.measuring` list read-only under **device → ring
+  measures** (`RootView` in `OuraApp.swift`); the per-feature switch is web-only.
 
 ## Known gaps (web-only, not yet on iOS)
 

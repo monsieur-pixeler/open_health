@@ -200,6 +200,8 @@ struct Device: Codable {
     var nights: Int?
     var total_events: Int?; var raw_events: Int?; var decoded_events: Int?
     var synced: String?; var synced_hm: String?
+    /// What the ring is set to measure; nested under `device` in the core JSON.
+    var measuring: [MeasuringFeature]?
 }
 // Symptom Radar (on-device illness detection). Mirrors the web summary's `illness`
 // block; computed on-device by IllnessModel so it isn't part of the FFI JSON.
@@ -290,6 +292,15 @@ struct UndatedNight: Codable {
     var start_ds: Int64?; var end_ds: Int64?; var in_bed_h: Double?
     var captured_unix: Int64?; var source: String?
     var reason: String?; var recoverable: Bool?
+}
+/// One on-ring measurement feature and whether the ring is running it. `on` comes from
+/// the real modes snapshotted at the last sync (`feature_modes.json`); without a
+/// snapshot the core falls back to "events of this kind were seen recently".
+struct MeasuringFeature: Codable, Identifiable {
+    var name: String
+    var on: Bool
+    var feature: String
+    var id: String { feature }
 }
 struct Summary: Codable {
     var analysis_digest: String? = nil

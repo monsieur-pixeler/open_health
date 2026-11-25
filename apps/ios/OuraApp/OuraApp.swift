@@ -1207,6 +1207,17 @@ struct RootView: View {
                             ObsStat(label: "synced",
                                     value: s.device.flatMap { d in d.synced.map { "\($0) \(d.synced_hm ?? "")" } } ?? "–")
                         }
+                        // what the ring is set to measure (real on-ring modes from the
+                        // last sync; same `measuring` list the web dashboard shows)
+                        if let measuring = s.device?.measuring, !measuring.isEmpty {
+                            ObsTag("ring measures", icon: "waveform.path.ecg")
+                            VStack(spacing: 10) {
+                                ForEach(measuring) { f in
+                                    ObsStat(label: f.name, value: f.on ? "on" : "off",
+                                            accent: f.on ? Obs.good : Obs.ink2)
+                                }
+                            }
+                        }
                         BuildStamp(prefix: s.device?.days_of_data.map { span in
                             let obs = s.device?.observed_days.map { " (\($0) observed)" } ?? ""
                             return "\(String(format: "%.0f", span)) days\(obs) · \(s.device?.nights ?? s.nights.count) nights"

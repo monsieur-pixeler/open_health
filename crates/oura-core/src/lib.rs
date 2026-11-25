@@ -741,7 +741,7 @@ impl RingSession {
             // The app-layer command is refused by some firmware; the plain one is not.
             let _ = client.sync_time().await;
         }
-        // Turn on step-motion and workout-HR logging if this ring still has them OFF
+        // Turn on step-motion, workout-HR and raw-PPG logging if this ring still has them OFF
         // (a ring never onboarded with the official app does). Before the drain, so
         // the ring starts logging them from this sync on.
         progress.on_progress("features".into(), 0, 0);
@@ -859,7 +859,9 @@ impl RingSession {
 /// name). The official app enables them from a per-account server flag; a ring that was
 /// never set up there leaves them OFF, so no step-motion or workout-HR events are ever
 /// logged. REAL_STEPS goes first: the app treats it as the prerequisite for EXERCISE_HR.
-const AUTO_ENABLE_FEATURES: [(u8, &str); 2] = [(0x0b, "real_steps"), (0x03, "exercise_hr")];
+/// CVA_PPG_SAMPLER logs raw PPG (`cva_raw_ppg_data`), the input for cardiovascular age.
+const AUTO_ENABLE_FEATURES: [(u8, &str); 3] =
+    [(0x0b, "real_steps"), (0x03, "exercise_hr"), (0x0d, "cva_ppg")];
 
 /// Every feature whose real on-ring mode is snapshotted to `feature_modes.json`, so the
 /// summary's "measuring" list shows actual on/off. Same set as the CLI sync.
@@ -1138,7 +1140,8 @@ mod feature_enable_tests {
     #[test]
     fn real_steps_is_enabled_before_exercise_hr() {
         let ids: Vec<u8> = AUTO_ENABLE_FEATURES.iter().map(|(id, _)| *id).collect();
-        assert_eq!(ids, vec![0x0b, 0x03]);
+        assert_eq!(ids, vec![0x0b, 0x03, 0x0d]);
+        assert_eq!(&ids[..2], &[0x0b, 0x03]);
     }
 }
 

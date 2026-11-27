@@ -55,3 +55,9 @@ en eigen scores.
   webdashboard.
 - `build_run.sh` en `build_run_torch.sh` bevatten nog `md.thomas.openoura` als
   bundle-ID (alleen voor de simulator); aanpassen als die scripts gebruikt worden.
+
+## Nieuw ontwerp (27 november)
+De gekozen "sfeervolle richting" staat als SwiftUI in `apps/ios/OuraApp/Design/`
+(Vandaag, Tijdlijn, Slaap, Mijn ring en een `TabView`). Nog niet gecompileerd en nog niet in
+de build. Stappen om het in te bouwen: `apps/ios/OuraApp/Design/README.md`.
+Ontwerp-canvas: https://claude.ai/artifact/RL2DWSJ8bnohRb3h6yUMot

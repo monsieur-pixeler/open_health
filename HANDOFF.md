@@ -61,3 +61,19 @@ De gekozen "sfeervolle richting" staat als SwiftUI in `apps/ios/OuraApp/Design/`
 (Vandaag, Tijdlijn, Slaap, Mijn ring en een `TabView`). Nog niet gecompileerd en nog niet in
 de build. Stappen om het in te bouwen: `apps/ios/OuraApp/Design/README.md`.
 Ontwerp-canvas: https://claude.ai/artifact/RL2DWSJ8bnohRb3h6yUMot
+
+## Vóór een factory reset: bestaande sleutel uit de iPhone-back-up halen
+Mogelijk hoeft de ring helemaal niet gereset te worden. Volgens het project OpenRing
+(github.com/busssard/OpenRing) staat de koppelsleutel van de officiële Oura-app in een
+gewone, onversleutelde iPhone-back-up: database `assa.sqlite`, tabel `ringconfiguration`,
+kolom `auth_key` (16 bytes). Met die sleutel werken de Oura-app en deze app naast elkaar.
+Nog niet door ons getest.
+
+1. Ramon maakt zelf in Finder een lokale iPhone-back-up zonder versleuteling.
+2. Zoek `assa.sqlite` van de Oura-app via `Manifest.db` en lees `auth_key`.
+3. Sleutel nooit tonen, loggen of committen; alleen in de Keychain van de app.
+4. Koppel met de bestaande sleutel (`existing_key_hex`), zonder nieuwe sleutel te installeren.
+5. Controleer dat beide apps synchroniseren.
+6. Ruim op: kopieën verwijderen, back-up verwijderen of versleuteling weer aanzetten.
+
+Lukt dit niet, stop dan en overleg met Ramon. Reset de ring nooit zelf.

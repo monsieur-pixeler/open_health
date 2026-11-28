@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		036A699E52DDC9F8A7791955 /* LaunchSummaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C2A570AC381AEBB22E24 /* LaunchSummaryTests.swift */; };
 		0495769093B20E220C3087A1 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4D6E4FACFF0279C2110F0 /* Models.swift */; };
 		1B076FB6D5DB34E6F6AA7513 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4024C8B53BE7A578961DCA70 /* Core.swift */; };
 		24250D37DC38689A634319E8 /* ModelProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7457BB37BE82DEEE27B923B /* ModelProgress.swift */; };
@@ -80,6 +81,7 @@
 		D1E7C25CD8CACF64282E7406 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		D208119F7DF5C7D4059DA416 /* OuraAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OuraAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55F5115BC3AFB621362EAA5 /* OuraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuraApp.swift; sourceTree = "<group>"; };
+		D9C6C2A570AC381AEBB22E24 /* LaunchSummaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSummaryTests.swift; sourceTree = "<group>"; };
 		E7457BB37BE82DEEE27B923B /* ModelProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProgress.swift; sourceTree = "<group>"; };
 		ED3721DFCD22E76EB8AEC4DC /* OuraApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OuraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2266D329BB0C7E990BAFD65 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				22419BAF973461259F978389 /* HealthExportTests.swift */,
+				D9C6C2A570AC381AEBB22E24 /* LaunchSummaryTests.swift */,
 				2A27E32AFEACB4FD560ABA90 /* NssaCacheTests.swift */,
 				B806FE24CC64C27A402548DE /* NssaParityFixture.json */,
 				3CE047C9D48F416A1A010F95 /* NssaParityTests.swift */,
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE057D4F8A9CC10B9F817B68 /* HealthExportTests.swift in Sources */,
+				036A699E52DDC9F8A7791955 /* LaunchSummaryTests.swift in Sources */,
 				2EBA36047A60C579C1C2FB2D /* NssaCacheTests.swift in Sources */,
 				58968090CF83E35021DD4057 /* NssaParityTests.swift in Sources */,
 				8633F51F80EFFAB9E59526F6 /* ResearchExportTests.swift in Sources */,

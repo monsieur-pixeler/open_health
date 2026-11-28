@@ -789,6 +789,81 @@ private struct SyncIndicatorButton: View {
     }
 }
 
+/// The first summary the home shows when nothing is cached. It must not wait behind
+/// the automatic ring sync, which holds `WorkGate` for its whole run.
+enum LaunchSummary {
+    static let noDataMessage = "No ring data on this iPhone yet. Tap the sync button at the top to sync your ring."
+
+    /// No database file: nothing to read, so answer at once without the gate. With a
+    /// database: the model-free summary, read under the gate like every other reader.
+    static func first(dbPath: String, gate: WorkGate = .shared,
+                      read: @escaping @Sendable () -> Summary = { Core.base() }) async -> Summary {
+        guard FileManager.default.fileExists(atPath: dbPath) else { return Summary(error: noDataMessage) }
+        await gate.acquire()
+        let summary: Summary = await withCheckedContinuation { completion in
+            DispatchQueue.global(qos: .userInitiated).async { completion.resume(returning: read()) }
+        }
+        await gate.release()
+        return summary
+    }
+}
+
+/// Shown only until the first summary exists. It always offers the way to the sync
+/// sheet and, while the ring is busy, the live sync status.
+struct LoadingView: View {
+    static let syncActionTitle = "Sync your ring"
+    @ObservedObject var ring: RingSync
+    let onSync: () -> Void
+
+    var body: some View {
+        VStack(spacing: 14) {
+            ProgressView().tint(Obs.ink)
+            Text("Loading your data…").font(Obs.mono(12)).foregroundStyle(Obs.ink2)
+            Button(action: onSync) {
+                Label(Self.syncActionTitle, systemImage: "arrow.triangle.2.circlepath")
+                    .font(.body.weight(.medium))
+                    .foregroundStyle(Obs.ink)
+                    .padding(.horizontal, 20)
+                    .frame(minHeight: 44)
+                    .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Obs.rule))
+                    .contentShape(RoundedRectangle(cornerRadius: 14))
+            }
+            .buttonStyle(.plain)
+            .padding(.top, 10)
+            if ring.busy, !ring.status.isEmpty {
+                Text(ring.status)
+                    .font(.footnote).foregroundStyle(Obs.ink2)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(24)
+    }
+}
+
+#Preview("Loading, sync running") {
+    let ring = RingSync()
+    ring.busy = true
+    ring.status = "Resuming sync…"
+    return ZStack {
+        Obs.canvas
+        LoadingView(ring: ring) {}
+    }
+    .preferredColorScheme(.dark)
+}
+
+#Preview("Loading, largest text") {
+    let ring = RingSync()
+    ring.busy = true
+    ring.status = "Resuming sync…"
+    return ZStack {
+        Obs.canvas
+        LoadingView(ring: ring) {}
+    }
+    .preferredColorScheme(.dark)
+    .dynamicTypeSize(.accessibility5)
+}
+
 // ── root ─────────────────────────────────────────────────────────────────────
 struct RootView: View {
     @Environment(\.scenePhase) private var scenePhase
@@ -845,10 +920,7 @@ struct RootView: View {
             if let s {
                 content(s)
             } else {
-                VStack(spacing: 14) {
-                    ProgressView().tint(Obs.ink)
-                    Text("Loading your data…").font(Obs.mono(12)).foregroundStyle(Obs.ink2)
-                }
+                LoadingView(ring: ring) { showSync = true }
             }
         }
         .fullScreenCover(item: $report) { sel in if let s { DayReportView(s: s, day: sel.day, tab: sel.sleep ? .sleep : .activity) } }
@@ -915,9 +987,20 @@ struct RootView: View {
         automaticSyncRequested = true
         Task {
             defer { automaticSyncRequested = false }
+            await showFirstSummaryIfNeeded()
             _ = await ring.syncAutomaticallyIfNeeded()
             if WorkCoordinator.shared.available { load(force: true, clearCurrent: false) }
         }
+    }
+
+    /// Without a cached summary the home would wait for `load()`, which only runs
+    /// after the automatic sync and then queues behind that sync's `WorkGate`. Show
+    /// the saved data (or the empty state) first; the sync and full load follow.
+    @MainActor private func showFirstSummaryIfNeeded() async {
+        guard s == nil, !ring.busy, !isRefreshingSummary,
+              UIApplication.shared.isProtectedDataAvailable else { return }
+        let first = await LaunchSummary.first(dbPath: DB.readPath())
+        if s == nil { s = first }
     }
 
     #if TORCH

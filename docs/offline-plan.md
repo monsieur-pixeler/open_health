@@ -83,7 +83,7 @@ Doel: elke berekening is na te rekenen en versies zijn te vergelijken.
 
 ## Volgorde
 
-1. Ring wissen en koppelen met de eigen app, sleutel veiligstellen.
+1. Ring koppelen met de bestaande sleutel (al opgehaald, zie `HANDOFF.md`); geen reset nodig.
 2. `OpenModelRunner` met laag 0 plus v0-fasen (als de ring ze levert).
 3. Eigen scores (laag 2) in `oura-summary`, tonen in iOS en web.
 4. Research bench en testnachten.
@@ -91,3 +91,27 @@ Doel: elke berekening is na te rekenen en versies zijn te vergelijken.
 6. Ademfrequentie en workoutherkenning.
 
 Elke stap raakt beide clients: zie `docs/clients-web-and-ios.md`.
+
+## Referenties (onderzocht 27 november 2026)
+
+Open projecten om van te leren. Controleer per project de licentie voordat je code of
+gewichten overneemt.
+
+- **WatchSleepNet** (Duke, 2025): open model en code voor slaapfasen op basis van
+  hartslagintervallen (IBI). Past goed bij de IBI-data van de ring; kandidaat voor de
+  eigen classifier (v1).
+- **Open Sleep Staging** (MIT Media Lab): slaapfasen uit versnelling, hartslag en
+  temperatuur. Nog een technical preview.
+- **asleep** (OxWearables): slaapclassificatie uit polsversnelling, getraind op 1000+
+  nachten met polysomnografie.
+- **multimodal_sleep_stage_benchmark** (bzhai): vergelijking van features en modellen
+  op de open MESA-dataset.
+- **OpenRing, Android** (github.com/busssard/OpenRing, MIT): eigen scores op de
+  telefoon, bouwt voort op open_oura en open_health. Schat op de Ring 4 slaapfasen uit
+  hartslag, HRV en beweging.
+- **OpenRing, iOS** (github.com/AMathur20/OpenRing, GPLv3): open, uitgeschreven
+  formules. Slaapscore: duur 35, efficiëntie 30, diep 20, REM 15 punten. Herstel:
+  rusthartslag 0,35, HRV 0,35, temperatuur boven +0,5 °C 0,15, slaapefficiëntie 0,15,
+  met 14-daagse basislijnen.
+- **open_ring** (LogosIsLife, GPL-3.0): uitgebreide protocoldocumentatie en 50+
+  decoders voor de Ring 4.

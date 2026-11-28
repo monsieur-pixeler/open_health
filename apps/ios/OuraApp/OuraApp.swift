@@ -795,13 +795,19 @@ enum LaunchSummary {
     static let noDataMessage = "No ring data on this iPhone yet. Tap the sync button at the top to sync your ring."
 
     /// No database file: nothing to read, so answer at once without the gate. With a
-    /// database: the model-free summary, read under the gate like every other reader.
+    /// database: the model-free summary, read under the gate like every other reader,
+    /// or nil when the app left the foreground or got locked while waiting for it.
     static func first(dbPath: String, gate: WorkGate = .shared,
-                      read: @escaping @Sendable () -> Summary = { Core.base() }) async -> Summary {
+                      isAvailable: @escaping @MainActor () -> Bool = { WorkCoordinator.shared.available },
+                      read: @escaping @Sendable (String) -> Summary = { Core.base(dbPath: $0) }) async -> Summary? {
         guard FileManager.default.fileExists(atPath: dbPath) else { return Summary(error: noDataMessage) }
         await gate.acquire()
+        guard await isAvailable() else {
+            await gate.release()
+            return nil
+        }
         let summary: Summary = await withCheckedContinuation { completion in
-            DispatchQueue.global(qos: .userInitiated).async { completion.resume(returning: read()) }
+            DispatchQueue.global(qos: .userInitiated).async { completion.resume(returning: read(dbPath)) }
         }
         await gate.release()
         return summary
@@ -818,7 +824,7 @@ struct LoadingView: View {
     var body: some View {
         VStack(spacing: 14) {
             ProgressView().tint(Obs.ink)
-            Text("Loading your data…").font(Obs.mono(12)).foregroundStyle(Obs.ink2)
+            Text("Loading your data…").font(.system(.caption, design: .monospaced)).foregroundStyle(Obs.ink2)
             Button(action: onSync) {
                 Label(Self.syncActionTitle, systemImage: "arrow.triangle.2.circlepath")
                     .font(.body.weight(.medium))
@@ -999,8 +1005,11 @@ struct RootView: View {
     @MainActor private func showFirstSummaryIfNeeded() async {
         guard s == nil, !ring.busy, !isRefreshingSummary,
               UIApplication.shared.isProtectedDataAvailable else { return }
-        let first = await LaunchSummary.first(dbPath: DB.readPath())
-        if s == nil { s = first }
+        // A reset or another load during the read bumps the generation: drop this result
+        // so it cannot re-show data that was just deleted.
+        let generation = loadGeneration
+        guard let first = await LaunchSummary.first(dbPath: DB.readPath()) else { return }
+        if s == nil, generation == loadGeneration { s = first }
     }
 
     #if TORCH
@@ -1063,7 +1072,9 @@ struct RootView: View {
         let run = WorkCoordinator.shared.newAnalysis()
         loadGeneration += 1
         let generation = loadGeneration
-        let previous = clearCurrent ? nil : s
+        // An error or empty-state summary is no analysis to keep: Core.withModels
+        // returns `previous` as-is when the event read fails.
+        let previous = clearCurrent || s?.error != nil ? nil : s
         if clearCurrent { s = nil }
         isRefreshingSummary = true
         modelProgress.begin(generation)

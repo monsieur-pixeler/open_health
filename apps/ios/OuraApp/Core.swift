@@ -52,8 +52,8 @@ enum SummaryCache {
 enum Core {
     /// Fast, model-free summary (vitals, activity ridges, device) straight from the
     /// shared-core JSON — safe to compute on a background queue and show immediately.
-    static func base() -> Summary {
-        let path = DB.readPath()   // synced DB if present, else the bundled seed
+    static func base(dbPath: String = DB.readPath()) -> Summary {
+        let path = dbPath   // synced DB if present, else the bundled seed
         // the phone's actual UTC offset, so night labels / sleep windows / digest
         // timing match the wearer's local clock — not a hardcoded constant. The whole
         // stack (web --tz-offset, the Python model runners, this FFI) takes whole

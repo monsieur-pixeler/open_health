@@ -150,7 +150,7 @@ testslot gaan. Lees een uitkomst als bewijs, niet als waarheid.
 
 ### Verbruik en de Mac
 
-Lees bij elke hartslag het weekverbruik van je account (`~/.claude/regie/post/verbruik/monsieurpixel.json`). Rond 92 %
+Lees bij elke hartslag het weekverbruik van je account (`~/.claude/regie/post/verbruik/ramin@monsieurpixel.nl.json`). Rond 92 %
 meld je het de director in één regel. Per app loopt er één zware run tegelijk via het testslot; staat de Mac boven ±20
 load, dan komt er geen zware run bij. Ramins Mac doet ook ander werk (HANDOFF.md "Ontzie de Mac").
 

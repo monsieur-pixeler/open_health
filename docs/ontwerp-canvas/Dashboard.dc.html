@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Webdashboard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#141416}
+a{color:inherit;text-decoration:none}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #141416; color: #F3EEE8; font-family: Inter, -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums">
+
+<div style="background: radial-gradient(70% 90% at 75% 55%, rgba(206,142,104,0.42) 0%, rgba(206,142,104,0) 65%), linear-gradient(180deg, #1A2140 0%, #2F2E4E 40%, #3E3446 70%, #141416 100%)">
+<header style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px">
+<div style="font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 32px">Open Health</div>
+<nav aria-label="Hoofdmenu" style="flex: 1; display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 26px; background: rgba(38,38,44,0.55); border: 1px solid rgba(255,255,255,0.12); max-width: fit-content"><a href="#vandaag" style="padding: 12px 16px; border-radius: 22px; font-size: 15px; background: rgba(255,255,255,0.13); color: #F3EEE8">Vandaag</a><a href="#slaap" style="padding: 12px 16px; border-radius: 22px; font-size: 15px; color: #A7A3A0">Slaap</a><a href="#tijdlijn" style="padding: 12px 16px; border-radius: 22px; font-size: 15px; color: #A7A3A0">Tijdlijn</a><a href="#bench" style="padding: 12px 16px; border-radius: 22px; font-size: 15px; color: #A7A3A0">Research bench</a></nav>
+<div style="display: flex; align-items: center; gap: 12px; margin-left: auto">
+<span style="font-size: 13px; color: #E8E1DA">Lokaal · gesynchroniseerd 07:58</span>
+<button aria-label="Synchroniseer met ring" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.12); color: #F3EEE8; display: flex; align-items: center; justify-content: center; padding: 0"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14 5.3"></path><path d="M4 12a8 8 0 0 1 14-5.3"></path><path d="M18 3v4h-4"></path><path d="M6 21v-4h4"></path></svg></button>
+</div>
+</header>
+
+<section id="vandaag" style="max-width: 1200px; margin: 0 auto; padding: 48px 24px 64px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end">
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 8px; max-width: 620px">
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #E8E1DA"><span style="font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase">Herstel · vrijdag 27 november</span><span>Gemiddeld 74</span></div>
+<div style="font-size: 120px; line-height: 116px; font-weight: 300; letter-spacing: -3px">68</div>
+<div style="position: relative; height: 16px; margin-top: 4px">
+<div style="position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: rgba(255,255,255,0.22)"></div>
+<div style="position: absolute; left: 0; width: 68%; top: 7px; height: 2px; background: #E8B86B"></div>
+<div style="position: absolute; left: 74%; top: 2px; width: 2px; height: 12px; background: #F3EEE8"></div>
+</div>
+<h1 style="margin: 12px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 56px; line-height: 60px">Rustig aan vandaag</h1>
+<p style="margin: 0; font-size: 19px; line-height: 28px; color: #EDE6DF; max-width: 52ch">Je HRV ligt 8% onder je basis en je rusthartslag 2 slagen hoger. Je sliep wel lang genoeg: 8u 11m.</p>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+<div style="position: relative; width: 80px; height: 80px">
+<svg aria-hidden="true" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="rgba(20,20,28,0.35)" stroke="rgba(255,255,255,0.2)" stroke-width="3"></circle><circle cx="40" cy="40" r="36" fill="none" stroke="#E8B86B" stroke-width="3" stroke-linecap="round" stroke-dasharray="153.8 226.2" transform="rotate(-90 40 40)"></circle></svg>
+<div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 300">68</div>
+</div>
+<div style="font-size: 13px; color: #E8E1DA">Herstel</div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+<div style="position: relative; width: 80px; height: 80px">
+<svg aria-hidden="true" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="rgba(20,20,28,0.35)" stroke="rgba(255,255,255,0.2)" stroke-width="3"></circle><circle cx="40" cy="40" r="36" fill="none" stroke="#7FD1C0" stroke-width="3" stroke-linecap="round" stroke-dasharray="183.2 226.2" transform="rotate(-90 40 40)"></circle></svg>
+<div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 300">81</div>
+</div>
+<div style="font-size: 13px; color: #E8E1DA">Slaap</div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+<div style="position: relative; width: 80px; height: 80px">
+<svg aria-hidden="true" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="rgba(20,20,28,0.35)" stroke="rgba(255,255,255,0.2)" stroke-width="3"></circle><circle cx="40" cy="40" r="36" fill="none" stroke="#E8E1DA" stroke-width="3" stroke-linecap="round" stroke-dasharray="122.1 226.2" transform="rotate(-90 40 40)"></circle></svg>
+<div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 300">54</div>
+</div>
+<div style="font-size: 13px; color: #E8E1DA">Activiteit</div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+<div style="position: relative; width: 80px; height: 80px">
+<svg aria-hidden="true" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="rgba(20,20,28,0.35)" stroke="rgba(255,255,255,0.2)" stroke-width="3"></circle><circle cx="40" cy="40" r="36" fill="none" stroke="#E8B86B" stroke-width="3" stroke-linecap="round" stroke-dasharray="208.1 226.2" transform="rotate(-90 40 40)"></circle></svg>
+<div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 300">84</div>
+</div>
+<div style="font-size: 13px; color: #E8E1DA">HRV</div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+<div style="position: relative; width: 80px; height: 80px">
+<svg aria-hidden="true" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="rgba(20,20,28,0.35)" stroke="rgba(255,255,255,0.2)" stroke-width="3"></circle><circle cx="40" cy="40" r="36" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="3" stroke-linecap="round" stroke-dasharray="226.2 226.2" transform="rotate(-90 40 40)"></circle></svg>
+<div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 300">52</div>
+</div>
+<div style="font-size: 13px; color: #E8E1DA">Hartslag</div>
+</div>
+</div>
+</section>
+</div>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 24px">
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<section id="slaap" style="flex: 999 1 560px; min-width: 0; background: #1F1F24; border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 36px">Afgelopen nacht</h2>
+<div style="font-size: 15px; color: #A7A3A0">23:04 – 07:51 · efficiëntie 93%</div>
+</div>
+<div style="display: flex; gap: 12px">
+<div style="display: flex; flex-direction: column; justify-content: space-between; font-size: 13px; color: #A7A3A0; height: 140px; width: 56px"><span>Wakker</span><span>REM</span><span>Licht</span><span>Diep</span></div>
+<svg role="img" aria-label="Hypnogram: verloop van slaapfasen door de nacht" width="100%" height="140" viewBox="0 0 264 104" preserveAspectRatio="none" style="flex: 1; min-width: 0"><path d="M0 8h264M0 37h264M0 66h264M0 96h264" stroke="#34343B" stroke-width="1"></path><rect x="0" y="2" width="6" height="12" rx="2" fill="#E8B86B"></rect><rect x="6" y="60" width="26" height="12" rx="2" fill="#9DB4F0"></rect><rect x="32" y="90" width="28" height="12" rx="2" fill="#5B6FD6"></rect><rect x="60" y="60" width="34" height="12" rx="2" fill="#9DB4F0"></rect><rect x="94" y="31" width="20" height="12" rx="2" fill="#B79CF5"></rect><rect x="114" y="60" width="30" height="12" rx="2" fill="#9DB4F0"></rect><rect x="144" y="90" width="14" height="12" rx="2" fill="#5B6FD6"></rect><rect x="158" y="60" width="18" height="12" rx="2" fill="#9DB4F0"></rect><rect x="176" y="2" width="5" height="12" rx="2" fill="#E8B86B"></rect><rect x="181" y="60" width="18" height="12" rx="2" fill="#9DB4F0"></rect><rect x="199" y="31" width="24" height="12" rx="2" fill="#B79CF5"></rect><rect x="223" y="60" width="20" height="12" rx="2" fill="#9DB4F0"></rect><rect x="243" y="31" width="14" height="12" rx="2" fill="#B79CF5"></rect><rect x="257" y="2" width="7" height="12" rx="2" fill="#E8B86B"></rect></svg>
+</div>
+<div style="display: flex; justify-content: space-between; padding-left: 68px; font-size: 13px; color: #A7A3A0"><span>23</span><span>01</span><span>03</span><span>05</span><span>07</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px 24px; padding-top: 8px">
+<div style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 10px; height: 10px; border-radius: 5px; background: #5B6FD6"></span><span style="color: #A7A3A0; flex: 1">Diep</span><span>1u 24m</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 10px; height: 10px; border-radius: 5px; background: #9DB4F0"></span><span style="color: #A7A3A0; flex: 1">Licht</span><span>4u 47m</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 10px; height: 10px; border-radius: 5px; background: #B79CF5"></span><span style="color: #A7A3A0; flex: 1">REM</span><span>2u 00m</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 15px"><span style="width: 10px; height: 10px; border-radius: 5px; background: #E8B86B"></span><span style="color: #A7A3A0; flex: 1">Wakker</span><span>36m</span></div>
+</div>
+</section>
+
+<section id="tijdlijn" style="flex: 1 1 340px; min-width: 0; background: #1F1F24; border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 36px">Tijdlijn</h2>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="position: relative; display: flex; gap: 16px">
+<div style="position: absolute; left: 19px; top: 44px; bottom: -16px; width: 2px; background: #2A2A30"></div><span style="flex: 0 0 40px; height: 40px; border-radius: 20px; background: #26262C; border: 1px solid #34343B; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #D8D2CC"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M6 15a6 6 0 0 1 12 0M12 5v3M5 9l1.5 1.5M19 9l-1.5 1.5"></path></svg></span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; padding-top: 2px">
+<div style="font-size: 13px; color: #A7A3A0">07:51</div>
+<div style="font-size: 17px; font-weight: 600">Wakker geworden</div>
+<div style="font-size: 15px; color: #A7A3A0">8u 11m geslapen · slaap 81</div>
+</div>
+</div>
+<div style="position: relative; display: flex; gap: 16px">
+<div style="position: absolute; left: 19px; top: 44px; bottom: -16px; width: 2px; background: #2A2A30"></div><span style="flex: 0 0 40px; height: 40px; border-radius: 20px; background: #26262C; border: 1px solid #34343B; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #D8D2CC"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; padding-top: 2px">
+<div style="font-size: 13px; color: #A7A3A0">23:11</div>
+<div style="font-size: 17px; font-weight: 600">In slaap gevallen</div>
+<div style="font-size: 15px; color: #A7A3A0">Na 7 minuten</div>
+</div>
+</div>
+<div style="position: relative; display: flex; gap: 16px">
+<span style="flex: 0 0 40px; height: 40px; border-radius: 20px; background: #26262C; border: 1px solid #34343B; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #D8D2CC"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4.5" r="1.6"></circle><path d="M9 21l2.5-6 2.5 2.5V21M8 12l3.5-3.5 3 2 2.5 2.5M11.5 8.5L10.5 14"></path></svg></span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; padding-top: 2px">
+<div style="font-size: 13px; color: #A7A3A0">18:20 – 18:38</div>
+<div style="font-size: 17px; font-weight: 600">Wandeling</div>
+<div style="font-size: 15px; color: #A7A3A0">18 min · 92 kcal · gem. 118 bpm</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
+<div style="background: #1F1F24; border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 24px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 13px; color: #A7A3A0">HRV in de nacht</div>
+<div style="font-size: 32px; font-weight: 300">84 <span style="font-size: 15px; color: #A7A3A0">ms</span></div>
+<div style="font-size: 13px; color: #E8B86B">8% onder basis</div>
+</div>
+<div style="background: #1F1F24; border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 24px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 13px; color: #A7A3A0">Rusthartslag</div>
+<div style="font-size: 32px; font-weight: 300">52 <span style="font-size: 15px; color: #A7A3A0">bpm</span></div>
+<div style="font-size: 13px; color: #E8B86B">2 boven basis</div>
+</div>
+<div style="background: #1F1F24; border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 24px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 13px; color: #A7A3A0">Huidtemperatuur</div>
+<div style="font-size: 32px; font-weight: 300">+0,2 <span style="font-size: 15px; color: #A7A3A0">°C</span></div>
+<div style="font-size: 13px; color: #A7A3A0">Binnen je bereik</div>
+</div>
+<div style="background: #1F1F24; border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 24px; padding: 20px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 13px; color: #A7A3A0">Zuurstof (SpO₂)</div>
+<div style="font-size: 32px; font-weight: 300">96 <span style="font-size: 15px; color: #A7A3A0">%</span></div>
+<div style="font-size: 13px; color: #7FD1C0">Stabiel</div>
+</div>
+</div>
+
+<section id="bench" style="background: #1F1F24; border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<div>
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 36px">Research bench</h2>
+<p style="margin: 4px 0 0; font-size: 15px; color: #A7A3A0">Elke berekening draait lokaal en is na te rekenen op je ruwe ringdata.</p>
+</div>
+<button style="height: 44px; padding: 0 20px; border-radius: 22px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); color: #F3EEE8; font: 500 15px Inter, system-ui, sans-serif; display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M5 14v5h14v-5"></path></svg>Ruwe data exporteren</button>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15px; text-align: left">
+<thead><tr style="font-size: 13px; color: #A7A3A0">
+<th style="padding: 8px 12px 8px 0; font-weight: 500; border-bottom: 1px solid #2E2E34">Onderdeel</th>
+<th style="padding: 8px 12px; font-weight: 500; border-bottom: 1px solid #2E2E34">Methode</th>
+<th style="padding: 8px 12px; font-weight: 500; border-bottom: 1px solid #2E2E34">Signalen</th>
+<th style="padding: 8px 0 8px 12px; font-weight: 500; border-bottom: 1px solid #2E2E34">Status</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; padding-left: 0; font-weight: 600">HRV</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; color: #A7A3A0">RMSSD over gecorrigeerde hartslagintervallen</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; color: #A7A3A0">Hartslagintervallen</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; padding-right: 0"><span style="display: inline-flex; align-items: center; gap: 6px; color: #7FD1C0"><span style="width: 8px; height: 8px; border-radius: 4px; background: #7FD1C0"></span>Werkt</span></td></tr>
+<tr><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; padding-left: 0; font-weight: 600">Persoonlijke basislijn</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; color: #A7A3A0">Voortschrijdend gemiddelde dat zich aan jou aanpast</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; color: #A7A3A0">HRV, rusthartslag, temperatuur</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; padding-right: 0"><span style="display: inline-flex; align-items: center; gap: 6px; color: #7FD1C0"><span style="width: 8px; height: 8px; border-radius: 4px; background: #7FD1C0"></span>Werkt</span></td></tr>
+<tr><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; padding-left: 0; font-weight: 600">Slaapfasen</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; color: #A7A3A0">Eigen classifier per 30 seconden</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; color: #A7A3A0">Hartslag, HRV, beweging, temperatuur</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; padding-right: 0"><span style="display: inline-flex; align-items: center; gap: 6px; color: #E8B86B"><span style="width: 8px; height: 8px; border-radius: 4px; background: #E8B86B"></span>In ontwikkeling</span></td></tr>
+<tr><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; padding-left: 0; font-weight: 600">Herstel- en slaapscore</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; color: #A7A3A0">Gewogen som van open onderdelen</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; color: #A7A3A0">Slaap, HRV, rusthartslag, temperatuur</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2E34; padding-right: 0"><span style="display: inline-flex; align-items: center; gap: 6px; color: #E8B86B"><span style="width: 8px; height: 8px; border-radius: 4px; background: #E8B86B"></span>In ontwikkeling</span></td></tr>
+<tr><td style="padding: 16px 12px; padding-left: 0; font-weight: 600">Workoutherkenning</td><td style="padding: 16px 12px; color: #A7A3A0">Regels op inspanning en hartslag</td><td style="padding: 16px 12px; color: #A7A3A0">Beweging (MET), hartslag</td><td style="padding: 16px 12px; padding-right: 0"><span style="display: inline-flex; align-items: center; gap: 6px; color: #A7A3A0"><span style="width: 8px; height: 8px; border-radius: 4px; background: #A7A3A0"></span>Gepland</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":1700}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+  "v": 3,
+  "attachments": {},
+  "createdOnFiles": {
+    "at": "2026-11-27T07:05:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "title": "Open Health – iOS en webdashboard",
+  "boards": {
+    "S-Vandaag.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 40,
+      "title": "Vandaag",
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "S-Tijdlijn.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 40,
+      "title": "Tijdlijn",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "S-Slaap.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 40,
+      "title": "Slaap",
+      "w": 390,
+      "x": 940,
+      "y": 0
+    },
+    "S-Ring.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 40,
+      "title": "Mijn ring",
+      "w": 390,
+      "x": 1410,
+      "y": 0
+    },
+    "Dashboard.dc.html": {
+      "expand": "fill",
+      "h": 1700,
+      "title": "Webdashboard",
+      "w": 1360,
+      "x": 0,
+      "y": 1300
+    }
+  },
+  "order": [
+    "S-Vandaag.dc.html",
+    "S-Tijdlijn.dc.html",
+    "S-Slaap.dc.html",
+    "S-Ring.dc.html",
+    "Dashboard.dc.html"
+  ],
+  "notes": {
+    "t-ios": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "iOS-app",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "t-web": {
+      "kind": "title1",
+      "maxW": 1360,
+      "text": "Webdashboard",
+      "w": 240,
+      "x": 0,
+      "y": 1000
+    }
+  },
+  "noteOrder": [
+    "t-ios",
+    "t-web"
+  ]
+}

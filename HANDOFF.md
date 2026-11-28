@@ -6,7 +6,7 @@ en de opdracht in `docs/opdracht-nieuw-ontwerp.md`.
 **Laatst bijgewerkt:** 28 november 2026
 
 ## Doel
-Ramon gebruikt zijn Oura Ring 5 met een eigen iOS-app: geen membership, geen cloud.
+Ramin gebruikt zijn Oura Ring 5 met een eigen iOS-app: geen membership, geen cloud.
 Data komt rechtstreeks via Bluetooth van de ring (open_oura) en alles wordt op de
 iPhone berekend. Alleen voor eigen gebruik, via TestFlight.
 
@@ -35,11 +35,11 @@ iPhone berekend. Alleen voor eigen gebruik, via TestFlight.
 - Op 28 november is die sleutel uit een lokale iPhone-back-up gehaald: database
   `assa.sqlite` van de Oura-app, tabel `ringconfiguration`, kolom `auth_key`. De
   ring heet in die database `EFE59E7B2AAA`.
-- **Ramon heeft de sleutel zelf veilig bewaard.** Hij staat nergens in deze repo,
+- **Ramin heeft de sleutel zelf veilig bewaard.** Hij staat nergens in deze repo,
   en zo moet het blijven.
 - Met deze sleutel werken de Oura-app en deze app naast elkaar. Een factory reset is
   **niet** nodig.
-- Hoe de sleutel in de app komt: Ramon plakt hem zelf in het veld
+- Hoe de sleutel in de app komt: Ramin plakt hem zelf in het veld
   "Paste your pairing key" en tikt op **synchroniseren** (`RingSync.run(keyHex:)`).
   Niet op koppelen: `pair` probeert een nieuwe sleutel te installeren en werkt alleen
   op een gewiste ring.
@@ -58,7 +58,10 @@ iPhone berekend. Alleen voor eigen gebruik, via TestFlight.
 
 ## Nog te doen (in deze volgorde)
 
-1. **App testen met de echte ring.** Ramon installeert build 0.1.2 (3) via TestFlight,
+De actuele stand (welke stap loopt, wat op Ramin wacht) staat in het Regiepaneel en in
+`~/.claude/regie/post/plan/open-health.json` (mijlpalen M1–M4); deze lijst is de volgorde waar dat plan uit komt.
+
+1. **App testen met de echte ring.** Ramin installeert build 0.1.2 (3) via TestFlight,
    plakt de sleutel en synchroniseert. Controleer daarna dat de officiële Oura-app ook
    nog synchroniseert. Dit is de eerste echte test van de koppeling.
 2. **Nieuw ontwerp inbouwen.** Volledige opdracht met taken, "klaar als" en regels:
@@ -67,9 +70,9 @@ iPhone berekend. Alleen voor eigen gebruik, via TestFlight.
 4. **Webdashboard** in de nieuwe stijl (staat op het canvas).
 
 ## Regels voor elke agent
-- **Sleutel:** vraag Ramon nooit om de sleutel in de chat te plakken. Toon, log of
+- **Sleutel:** vraag Ramin nooit om de sleutel in de chat te plakken. Toon, log of
   commit hem nooit. Hij hoort alleen in de Keychain van de app.
-- **Ring:** reset de ring nooit en installeer nooit een nieuwe sleutel zonder Ramons
+- **Ring:** reset de ring nooit en installeer nooit een nieuwe sleutel zonder Ramins
   uitdrukkelijke akkoord op dat moment.
 - **Nooit committen:** modellen (`.pt`/`.ptl`), `libtorch`, `oura.db`, back-ups of
   sleutels (staan in `.gitignore`).
@@ -78,8 +81,8 @@ iPhone berekend. Alleen voor eigen gebruik, via TestFlight.
   repo.
 - **Twee clients:** volgens `CLAUDE.md` horen wijzigingen in zowel de iOS-app als het
   webdashboard. Doe je bewust maar één, noteer dat in `docs/clients-web-and-ios.md`.
-- **Ontzie de Mac:** Ramons Mac doet ook ander werk. Geen zware builds tegelijk.
-- **Bij twijfel:** vraag Ramon, en raad niet.
+- **Ontzie de Mac:** Ramins Mac doet ook ander werk. Geen zware builds tegelijk.
+- **Bij twijfel:** vraag Ramin, en raad niet.
 
 ## Kleine punten
 - `build_run.sh` en `build_run_torch.sh` gebruiken nog bundle-ID `md.thomas.openoura`

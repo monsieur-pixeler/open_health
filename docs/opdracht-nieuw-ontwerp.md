@@ -1,13 +1,13 @@
 # Opdracht: nieuw ontwerp inbouwen in de iOS-app van Open Health
 
-**Opdrachtgever:** Ramon van Schie
+**Opdrachtgever:** Ramin van Schie
 **Datum:** 27 november 2026, bijgewerkt 28 november 2026
 **Repo:** `monsieur-pixeler/open_health` (fork van `Th0rgal/open_health`), lokaal in `/Users/ramonvanschie/Developer/open_health`
 **Ontwerp-canvas:** https://claude.ai/artifact/RL2DWSJ8bnohRb3h6yUMot
 
 ## Doel
 
-Ramon gebruikt zijn Ring 5 zonder Oura-app en zonder abonnement. De iOS-app in deze repo leest de ring rechtstreeks via Bluetooth uit en rekent alles op de iPhone. De app krijgt nu een nieuw ontwerp: de "sfeervolle richting" met vier schermen (Vandaag, Tijdlijn, Slaap, Mijn ring). Die schermen staan al als SwiftUI-code klaar, maar zijn nog nooit gecompileerd en zitten nog niet in de build.
+Ramin gebruikt zijn Ring 5 zonder Oura-app en zonder abonnement. De iOS-app in deze repo leest de ring rechtstreeks via Bluetooth uit en rekent alles op de iPhone. De app krijgt nu een nieuw ontwerp: de "sfeervolle richting" met vier schermen (Vandaag, Tijdlijn, Slaap, Mijn ring). Die schermen staan al als SwiftUI-code klaar, maar zijn nog nooit gecompileerd en zitten nog niet in de build.
 
 Deze opdracht: het nieuwe ontwerp werkend in de app krijgen, met echte data, naast de bestaande weergave.
 
@@ -16,7 +16,7 @@ Deze opdracht: het nieuwe ontwerp werkend in de app krijgen, met echte data, naa
 - De bestaande app bouwt via Xcode Cloud (model-vrije build, zonder Oura-modellen). Build 0.1.2 (3) staat in TestFlight voor groep Intern. Een nieuwe build moet daar handmatig aan groep Intern worden toegevoegd.
 - Het Xcode Cloud-tegoed is beperkt (vult aan op 7 december). Push niet voor elke kleine stap naar `main`; bundel wijzigingen.
 - Signing staat op team `UL2WF38GWY`, bundle-ID `nl.ramin.openhealth`.
-- De koppelsleutel van de ring is uit Ramons iPhone-back-up gehaald en door Ramon zelf bewaard. Een factory reset is niet nodig. Zie `HANDOFF.md`, "Ring en koppelsleutel".
+- De koppelsleutel van de ring is uit Ramins iPhone-back-up gehaald en door Ramin zelf bewaard. Een factory reset is niet nodig. Zie `HANDOFF.md`, "Ring en koppelsleutel".
 - Het nieuwe ontwerp staat in `apps/ios/OuraApp/Design/`:
 
 | Bestand | Inhoud |
@@ -37,18 +37,18 @@ Lees vóór je begint: `CLAUDE.md`, `HANDOFF.md`, `apps/ios/OuraApp/Design/READM
 
 ## Taken
 
-Werk in deze volgorde. Stop na elke taak, laat Ramon zien wat er veranderd is en wacht op akkoord voor de volgende.
+Werk in deze volgorde. Stop na elke taak, laat Ramin zien wat er veranderd is en wacht op akkoord voor de volgende.
 
 ### 0. Eerst: de koppeling met de echte ring testen
 
-De sleutel is al opgehaald (28 november) en Ramon bewaart hem zelf. Deze taak test of de app er echt mee werkt.
+De sleutel is al opgehaald (28 november) en Ramin bewaart hem zelf. Deze taak test of de app er echt mee werkt.
 
-1. Ramon installeert de huidige build via TestFlight.
-2. Ramon plakt de sleutel zelf in het veld "Paste your pairing key" en tikt op **synchroniseren** (`RingSync.run(keyHex:)`). **Niet** op koppelen: `pair` probeert een nieuwe sleutel te installeren.
-3. Vraag Ramon nooit om de sleutel in de chat te plakken. Laat hem hem zelf invoeren.
-4. Controleer met Ramon dat er metingen binnenkomen in de app én dat de officiële Oura-app nog steeds synchroniseert.
+1. Ramin installeert de huidige build via TestFlight.
+2. Ramin plakt de sleutel zelf in het veld "Paste your pairing key" en tikt op **synchroniseren** (`RingSync.run(keyHex:)`). **Niet** op koppelen: `pair` probeert een nieuwe sleutel te installeren.
+3. Vraag Ramin nooit om de sleutel in de chat te plakken. Laat hem hem zelf invoeren.
+4. Controleer met Ramin dat er metingen binnenkomen in de app én dat de officiële Oura-app nog steeds synchroniseert.
 
-**Klaar als:** beide apps met dezelfde ring synchroniseren. **Lukt het niet**, stop dan en meld wat er misging, met de foutmelding uit de app. Reset de ring niet en installeer geen nieuwe sleutel; dat beslist Ramon.
+**Klaar als:** beide apps met dezelfde ring synchroniseren. **Lukt het niet**, stop dan en meld wat er misging, met de foutmelding uit de app. Reset de ring niet en installeer geen nieuwe sleutel; dat beslist Ramin.
 
 ### 1. In het project opnemen
 - Voeg `Design` toe aan `sources` in `project.yml` én in de model-vrije opzet voor Xcode Cloud (`project-ci.yml` en het gecommitte Xcode-project).
@@ -89,17 +89,17 @@ Koppel aan bestaande functies, voeg geen nieuwe functionaliteit toe:
 - Voeg in de instellingen een schakelaar toe om te kiezen tussen de oude weergave (`RootView`) en het nieuwe ontwerp (`OHAppShell`).
 - De oude weergave blijft voorlopig de standaard.
 
-**Klaar als:** Ramon via TestFlight beide weergaven kan proberen.
+**Klaar als:** Ramin via TestFlight beide weergaven kan proberen.
 
 ## Regels
 
 - **Geen materiaal van Oura:** gebruik geen afbeeldingen, iconen, logo's of teksten uit de officiële Oura-app. De ring op "Mijn ring" is getekend en blijft getekend.
 - **Nooit committen:** modellen (`.pt`/`.ptl`), `libtorch`, `oura.db`, auth-keys of andere sleutels.
 - **Kleine commits** per taak, met een duidelijke boodschap.
-- **Ontzie de Mac:** Ramons Mac doet ook ander werk. Draai geen zware builds tegelijk en gebruik de model-vrije build.
+- **Ontzie de Mac:** Ramins Mac doet ook ander werk. Draai geen zware builds tegelijk en gebruik de model-vrije build.
 - **Twee clients:** volgens `CLAUDE.md` horen nieuwe weergaven ook in het webdashboard. Noteer in `docs/clients-web-and-ios.md` ("Known gaps") wat nog in het webdashboard moet; dat is een aparte opdracht.
-- **Geen onomkeerbare acties op de ring:** test "Ring wissen" niet op Ramons echte ring zonder zijn uitdrukkelijke akkoord op dat moment.
-- **Bij twijfel:** vraag Ramon, en raad niet.
+- **Geen onomkeerbare acties op de ring:** test "Ring wissen" niet op Ramins echte ring zonder zijn uitdrukkelijke akkoord op dat moment.
+- **Bij twijfel:** vraag Ramin, en raad niet.
 
 ## Ontwerpregels (samenvatting)
 
@@ -119,4 +119,4 @@ Koppel aan bestaande functies, voeg geen nieuwe functionaliteit toe:
 
 - Eigen slaapfasen en scores berekenen (zie `docs/offline-plan.md`).
 - Het webdashboard in de nieuwe stijl bouwen.
-- De ring wissen en opnieuw koppelen met een nieuwe sleutel. Dat is niet nodig zolang taak 0 slaagt, en als het ooit wel moet, beslist en doet Ramon dat zelf.
+- De ring wissen en opnieuw koppelen met een nieuwe sleutel. Dat is niet nodig zolang taak 0 slaagt, en als het ooit wel moet, beslist en doet Ramin dat zelf.

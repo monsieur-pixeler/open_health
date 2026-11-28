@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regie Open Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4efe6;--tile:#fffdf9;--ink:#1d1a16;--muted:#6b6358;--line:#e4dccf;--accent:#c9771a;--accent-soft:#f6e6cf;--ok:#3f7d5c;--shadow:0 1px 2px rgba(40,30,10,.06),0 6px 18px rgba(40,30,10,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0d0d;--tile:#17150f;--ink:#f1ebe0;--muted:#a99f90;--line:#2c2820;--accent:#e8a24a;--accent-soft:#2a2012;--ok:#7fc49c;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0d0d0d;--tile:#17150f;--ink:#f1ebe0;--muted:#a99f90;--line:#2c2820;--accent:#e8a24a;--accent-soft:#2a2012;--ok:#7fc49c;--shadow:none}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+h1{font:600 28px/1.2 "Space Grotesk",sans-serif;margin:0 0 4px}
+h2{font:600 18px/1.3 "Space Grotesk",sans-serif;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+.tile{background:var(--tile);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;box-shadow:var(--shadow)}
+.ask{border-color:var(--accent);background:var(--accent-soft)}
+details summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--accent);font-weight:600}
+ul,ol{margin:6px 0;padding-left:20px}
+li{margin:3px 0}
+.m{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+.dot{flex:none;width:14px;height:14px;border-radius:50%;border:2px solid var(--accent);margin-top:5px}
+.dot.now{background:var(--accent)}
+.k{color:var(--muted);font-size:14px}
+code{font-size:13px;background:var(--accent-soft);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere}
+q{font-style:italic}
+</style>
+</head>
+<body>
+<main>
+<h1>Regie voor Open Health</h1>
+<p class="sub">Voorstel van oura-regie, 28 nov 2026. Eén ja zet alles hieronder neer; daarna start mijlpaal 1.</p>
+
+<section class="tile ask">
+<h2>Wat ik van je vraag</h2>
+<p>Akkoord op deze opzet, inclusief de nieuwe blokken bovenaan <code>CLAUDE.md</code>? Antwoord in mijn venster met <b>"ja regie"</b>, of zeg wat anders moet.</p>
+<p class="k">Eerst graag de ringtest (stap a van M1); het ontwerp-canvas hoef je niet te delen, de bladen staan al in de repo.</p>
+</section>
+
+<section class="tile">
+<h2>Waar Open Health om draait</h2>
+<p>Jouw eigen Oura-app op je Ring 5: geen abonnement, geen cloud, alles rekent de iPhone uit, alleen voor jou via TestFlight. <q>De hele app is al ontwikkeld. We moeten alleen een nieuwe UI eroverheen trekken.</q> En: <q>de calculaties die die in-device doet, daar moeten we ook even naar kijken hoe die beter gaan.</q></p>
+<details><summary>Toon "Zo bouwen we" (7 vaste besluiten)</summary>
+<ol>
+<li>Het gekozen ontwerp is de sfeervolle richting; het canvas is de referentie, <code>Design/</code> de code.</li>
+<li>De koppelsleutel komt nooit in de chat, een log of de repo; jij plakt hem zelf in de app.</li>
+<li>De ring wordt nooit gewist en krijgt nooit een nieuwe sleutel zonder jouw ja op dat moment.</li>
+<li>Geen beeld, tekst of model van Oura in de repo.</li>
+<li>Eerst iOS; het webdashboard volgt als eigen mijlpaal.</li>
+<li>De oude weergave blijft de standaard tot jij kiest.</li>
+<li>Bouwen gebeurt lokaal; naar main pushen alleen aan het eind van een mijlpaal (Xcode Cloud-tegoed tot 7 dec).</li>
+</ol>
+<p class="k">Bron: HANDOFF.md, docs/opdracht-nieuw-ontwerp.md en je woorden van 10:06, 10:39 en 10:40.</p>
+</details>
+</section>
+
+<section class="tile">
+<h2>Mijlpalen</h2>
+<div class="m"><span class="dot now"></span><div><b>M1 Nieuw ontwerp op iOS</b> <span class="k">nu</span><br>De vier schermen (Vandaag, Tijdlijn, Slaap, Mijn ring) werken met echte ringdata, naast de oude weergave.</div></div>
+<div class="m"><span class="dot"></span><div><b>M2 Eigen slaap en scores</b><br>Slaapfasen en scores rekent de app zelf uit, zonder Oura's modellen.</div></div>
+<div class="m"><span class="dot"></span><div><b>M3 Webdashboard</b><br>Het dashboard op de Mac in dezelfde stijl en met dezelfde scores.</div></div>
+<div class="m"><span class="dot"></span><div><b>M4 TestFlight voor dagelijks gebruik</b><br>Nieuwe weergave standaard, alles getest op je iPhone.</div></div>
+<details><summary>Toon de stappen per mijlpaal</summary>
+<p><b>M1</b></p>
+<ol type="a">
+<li>Ringtest: jij installeert build 0.1.2, plakt de sleutel en tikt op synchroniseren; de Oura-app moet ook blijven werken.</li>
+<li>Ontwerp vastleggen: <code>design-system.md</code> uit de ontwerpcode en het canvas, plus referentiebeelden per scherm. Geen nieuwe keuzepagina: het ontwerp is gekozen.</li>
+<li>De ontwerpmap in beide projecten en compileren, zonder de bestaande schermen te veranderen.</li>
+<li>Schermen nalopen in donker en met de grootste tekst (via SwiftUI Preview).</li>
+<li>Echte data koppelen; wat de app nog niet berekent, blijft leeg.</li>
+<li>Knoppen koppelen aan wat er al is (synchroniseren, sleutel-back-up, export, ring wissen met bevestiging).</li>
+<li>Schakelaar oud/nieuw in de instellingen.</li>
+<li>Eindkeuring, één push naar main; jij zet de build in TestFlight.</li>
+</ol>
+<p><b>M2</b> (bron: docs/offline-plan.md; een korte PRD alleen als dat plan te dun blijkt)</p>
+<ol type="a">
+<li>Uitzoeken of de Ring 5 zelf slaapfasen meestuurt.</li>
+<li>Eigen rekenaar zonder Oura-model, met wat er al is: de signaalschatting en de bestaande slaapscore in de code.</li>
+<li>Herstel- en activiteitscore, met per score wat hem omhoog of omlaag trok.</li>
+<li>Vaste testnachten om versies te vergelijken.</li>
+<li>Eigen slaapfase-model trainen en pas na vergelijking aanzetten.</li>
+<li>Ademfrequentie en workoutherkenning.</li>
+</ol>
+<p class="k">Datums zet ik pas op het paneel met jouw ja.</p>
+</details>
+</section>
+
+<section class="tile">
+<h2>Zo werken we</h2>
+<p>Per doel: plan, jouw vragen op één pagina, bouwen per stap, keuren (code, en bij schermen ook ontwerp), eindkeuring, samenvoegen. Schermen bekijken we in SwiftUI Preview; de simulator alleen voor wat echt op een toestel moet.</p>
+<details><summary>Toon de zes helpers en wat ze bewaken</summary>
+<ul>
+<li><b>Planner</b>: maakt per doel het plan met "klaar als", zoekt eerst wat er al in de code zit.</li>
+<li><b>Bouwer</b>: bouwt één stap; bewaakt sleutel, ring, geen Oura-materiaal, twee clients en een rustige Mac.</li>
+<li><b>Codekeurder</b>: keurt de code, met extra oog op het gedeelde rekenhart en de klok van de ring.</li>
+<li><b>Ontwerpkeurder</b>: legt de schermen naast het canvas en het design-systeem.</li>
+<li><b>Tegenspreker</b>: probeert stappen kapot te maken die aan data, sync of berekeningen komen.</li>
+<li><b>Eindkeurder</b>: keurt het hele doel, ook of iOS en web nog hetzelfde rekenen.</li>
+</ul>
+</details>
+</section>
+
+<section class="tile">
+<h2>Wat altijd bij jou blijft</h2>
+<ul>
+<li>Iets op de ring zelf: wissen, opnieuw koppelen, een nieuwe sleutel.</li>
+<li>TestFlight en alles wat naar Apple gaat.</li>
+<li>Volgorde, mijlpalen en datums.</li>
+</ul>
+<details><summary>Toon wat ik verder opruim of aanpas (4 punten)</summary>
+<ul>
+<li>In HANDOFF en de opdracht staat "Ramon"; ik maak er "Ramin" van.</li>
+<li>De stand ("Nog te doen") gaat naar het plan op het paneel; HANDOFF blijft de overdracht en verwijst ernaar.</li>
+<li>Een projectinstelling voor SwiftUI Preview via Xcode (<code>.mcp.json</code>), zoals bij IronLab.</li>
+<li>De sessienaam <code>oura-regie</code> wijkt af van de app-id <code>open-health</code>; dat stem ik af met de director.</li>
+</ul>
+</details>
+</section>
+</main>
+</body>
+</html>
